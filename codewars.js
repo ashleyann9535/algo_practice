@@ -12,9 +12,21 @@ function countSheeps(arrayOfSheep) {
 }
 
 
-console.log(countSheeps([true,  true,  true,  false,
-    true,  true,  true,  true ,
-    true,  false, true,  false,
-    true,  false, false, true ,
-    true,  true,  true,  true ,
-    false, false, true,  true]));
+// console.log(countSheeps([true,  true,  true,  false,
+//     true,  true,  true,  true ,
+//     true,  false, true,  false,
+//     true,  false, false, true ,
+//     true,  true,  true,  true ,
+//     false, false, true,  true]));
+
+// Given a non-empty array of integers, return the result of multiplying the values together in order.
+function grow(x){
+    let multiple = 1;
+    for(let i = 0; i < x.length; i++){
+        console.log(x[i])
+        multiple *= x[i]
+    }
+    return multiple
+}
+
+console.log(grow([1, 2, 3, 4]))
