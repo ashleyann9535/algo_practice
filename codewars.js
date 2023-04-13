@@ -42,6 +42,21 @@ function isPowerOfTwo(n){
     }
     return false
   }
+// console.log(isPowerOfTwo(1024)) //true
+// console.log(isPowerOfTwo(333)) //false
 
-console.log(isPowerOfTwo(1024)) 
-console.log(isPowerOfTwo(333))
+// Create a function named rotate() that accepts a string argument and returns an array of strings 
+// with each letter from the input string being rotated to the end.
+// rotate("Hello") // => ["elloH", "lloHe", "loHel", "oHell", "Hello"]
+function rotate(str){
+    let arr = []
+    let begin = ''
+    for(let i =0; i <str.length; i++){
+        begin += str[i]
+        let remove = str.slice(i+1)
+        arr.push(remove + begin)
+    }
+    return arr
+}
+
+// console.log(rotate('Hello'))
