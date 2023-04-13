@@ -29,4 +29,19 @@ function grow(x){
     return multiple
 }
 
-console.log(grow([1, 2, 3, 4]))
+// console.log(grow([1, 2, 3, 4]))
+
+// Complete the function power_of_two/powerOfTwo (or equivalent, depending on your language) 
+// that determines if a given non-negative integer is a power of two.
+function isPowerOfTwo(n){
+    //.. should return true or false ..
+    for(let i = 0; i<= n/2; i++){
+      if(2 ** i === n){
+        return true
+      }
+    }
+    return false
+  }
+
+console.log(isPowerOfTwo(1024)) 
+console.log(isPowerOfTwo(333))
