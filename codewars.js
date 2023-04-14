@@ -58,5 +58,24 @@ function rotate(str){
     }
     return arr
 }
-
 // console.log(rotate('Hello'))
+
+//Remove words from the sentence if they contain exactly one exclamation mark. 
+//Words are separated by a single space, without leading/trailing spaces.
+
+function remove (string) {
+    let strArr = string.split(' ')
+
+    for(let i =0; i < strArr.length; i++){
+        if(strArr[i].includes('!')){
+            strArr[i] = ''
+        }
+    }
+
+    return strArr.join('');
+}
+
+console.log(remove("Hi!"))
+console.log(remove("Hi Hi! Hi!"))
+//Continue here
+console.log(remove("Hi! Hi!! Hi!")) //=== "Hi!!"
