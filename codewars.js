@@ -65,14 +65,14 @@ function rotate(str){
 
 function remove (string) {
     let strArr = string.split(' ')
-    const regex = /!{2,}/g;
 
     for(let i =0; i < strArr.length; i++){
         if(strArr[i].includes('!')){
-            if(strArr[i].includes('!!')){
+            if(strArr[i].endsWith('!!') || (strArr[i].endsWith('!') && strArr[i].startsWith('!'))){
                 strArr[i] = strArr[i]
             }else{
                 strArr[i] = ''
+                //strArr.splice(i,1)
             }
         }
     }
@@ -84,4 +84,7 @@ console.log(remove("Hi!")) // = ''
 console.log(remove("Hi Hi! Hi!")) // = 'Hi'
 //Continue here
 console.log(remove("Hi! Hi!! Hi!")) //=== "Hi!!"
-console.log(remove("Hi! !Hi! Hi!"))
+console.log(remove("Hi! !Hi! Hi!")) //=== '!Hi!
+console.log(remove("Hi! !Hi Hi!")) // === ' '
+//Working here
+console.log(remove("!rgrbhy! !hwlud !vvomag srjxs iglj ncgnqb stac !wqd uzpcz"))// === '!rgrbhy! srjxs iglj ncgnqb stac uzpcz'
