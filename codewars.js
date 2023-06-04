@@ -64,27 +64,32 @@ function rotate(str){
 //Words are separated by a single space, without leading/trailing spaces.
 
 function remove (string) {
-    let newArr = []
-    let strArr = string.split(' ')
+    //Refactor with chaining methods
+    let newStr = string.split(' ')
+        .filter(w => w.split('!').length != 2)
+        .join(' ')
 
-    for(let i =0; i < strArr.length; i++){
-        if(strArr[i].includes('!')){
-            if(strArr[i].endsWith('!!') || (strArr[i].endsWith('!') && strArr[i].startsWith('!'))){
-                strArr[i] = strArr[i]
-                newArr.push(strArr[i])
-            }
-        }else{
-            newArr.push(strArr[i])
-        }
-    }
+    //Attempt 1
+    // let newArr = []
+    // let strArr = string.split(' ')
 
+    // for(let i =0; i < strArr.length; i++){
+    //     if(strArr[i].includes('!')){
+    //         if(strArr[i].endsWith('!!') || (strArr[i].endsWith('!') && strArr[i].startsWith('!'))){
+    //             strArr[i] = strArr[i]
+    //             newArr.push(strArr[i])
+    //         }
+    //     }else{
+    //         newArr.push(strArr[i])
+    //     }
+    // }
+    //newArr.join(' ')
     
-    return newArr.join(' ');
+    return newStr;
 }
 
 console.log(remove("Hi!")) // = ''
 console.log(remove("Hi Hi! Hi!")) // = 'Hi'
-
 console.log(remove("Hi! Hi!! Hi!")) //=== "Hi!!"
 console.log(remove("Hi! !Hi! Hi!")) //=== '!Hi!
 console.log(remove("Hi! !Hi Hi!")) // === ' '
