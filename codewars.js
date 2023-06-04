@@ -64,27 +64,28 @@ function rotate(str){
 //Words are separated by a single space, without leading/trailing spaces.
 
 function remove (string) {
+    let newArr = []
     let strArr = string.split(' ')
 
     for(let i =0; i < strArr.length; i++){
         if(strArr[i].includes('!')){
             if(strArr[i].endsWith('!!') || (strArr[i].endsWith('!') && strArr[i].startsWith('!'))){
                 strArr[i] = strArr[i]
-            }else{
-                strArr[i] = ''
-                //strArr.splice(i,1)
+                newArr.push(strArr[i])
             }
+        }else{
+            newArr.push(strArr[i])
         }
     }
 
-    return strArr.join('');
+    
+    return newArr.join(' ');
 }
 
 console.log(remove("Hi!")) // = ''
 console.log(remove("Hi Hi! Hi!")) // = 'Hi'
-//Continue here
+
 console.log(remove("Hi! Hi!! Hi!")) //=== "Hi!!"
 console.log(remove("Hi! !Hi! Hi!")) //=== '!Hi!
 console.log(remove("Hi! !Hi Hi!")) // === ' '
-//Working here
 console.log(remove("!rgrbhy! !hwlud !vvomag srjxs iglj ncgnqb stac !wqd uzpcz"))// === '!rgrbhy! srjxs iglj ncgnqb stac uzpcz'
