@@ -37,3 +37,15 @@ def plusMinus(arr):
     return ratios
 
 #print(plusMinus([-4, 3, -9, 0, 4, 1]))
+
+#Exercise 2
+# Print two space-separated long integers denoting the respective minimum and maximum values 
+# that can be calculated by summing exactly four of the five integers.
+def miniMaxSum(arr):
+    arr.sort()
+    
+    min_sum = arr[0] + arr[1] + arr[2] + arr[3]
+    
+    max_sum = arr[4] + arr[1] + arr[2] + arr[3]
+    
+    print(min_sum, max_sum)
