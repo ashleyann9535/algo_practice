@@ -81,4 +81,26 @@ def lonely_integer(a):
             unique = num
     return unique
 
-print(lonely_integer([1,2,3,4,3,2,1])) #4
+#print(lonely_integer([1,2,3,4,3,2,1])) #4
+
+#Exercise 2
+#Given a square matrix, calculate the absolute difference between the sums of its diagonals.
+def diagonalDifference(arr, n):
+    #Use if always a 3 by 3 square
+    #left = arr[0][0] + arr[1][1] + arr[2][2]
+    #right = = arr[0][2] + arr[1][1] + arr[2][0]
+    left = 0
+    right = 0
+    for i in range(n):
+        left += arr[i][i]
+
+    for i in range(n):
+        right += arr[i][n-i-1]
+
+    return abs(left - right)
+
+matrix = [[11, 2, 4],
+          [4, 5, 6],
+          [10, 8, -12]]
+
+print(diagonalDifference(matrix, 3))
