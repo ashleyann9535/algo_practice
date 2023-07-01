@@ -69,3 +69,16 @@ def timeConversion(s):
 # print(timeConversion('07:05:45PM')) # 19:05:45
 # print(timeConversion('12:05:45AM')) # 00:05:45
 # print(timeConversion('12:05:45PM')) # 12:05:45
+
+#WEEK TEST PREP Day 2
+#Exercise 1
+#Given an array of integers, where all elements but one occur twice, find the unique element.
+#Return the element that occurs only once
+def lonely_integer(a):
+    a.sort()
+    for num in a:
+        if a.count(num) == 1:
+            unique = num
+    return unique
+
+print(lonely_integer([1,2,3,4,3,2,1])) #4
