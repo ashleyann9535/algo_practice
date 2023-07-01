@@ -14,3 +14,26 @@ def migratoryBirds(arr):
 
 print(migratoryBirds([1, 4, 4, 4, 5, 3])) # 4
 print(migratoryBirds([1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4])) #3
+
+#WEEK TEST PREP Day 1
+#Exercise 1
+# Print the ratios of positive, negative and zero values in the array. 
+# Each value should be printed on a separate line with  digits after the decimal. 
+# The function should not return a value.
+def plusMinus(arr):
+    ratios = [0,0,0]
+    for num in arr:
+        if num == 0:
+            ratios[2] += 1
+        elif num < 0:
+            ratios[1] += 1
+        else:
+            ratios[0] += 1
+    
+    for num in ratios:
+        num = format((num/len(arr)),".6f")
+        print(num)
+        
+    return ratios
+
+#print(plusMinus([-4, 3, -9, 0, 4, 1]))
