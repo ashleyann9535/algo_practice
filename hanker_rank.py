@@ -12,8 +12,8 @@ def migratoryBirds(arr):
     
     return most_bird
 
-print(migratoryBirds([1, 4, 4, 4, 5, 3])) # 4
-print(migratoryBirds([1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4])) #3
+#print(migratoryBirds([1, 4, 4, 4, 5, 3])) # 4
+#print(migratoryBirds([1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4])) #3
 
 #WEEK TEST PREP Day 1
 #Exercise 1
@@ -49,3 +49,23 @@ def miniMaxSum(arr):
     max_sum = arr[4] + arr[1] + arr[2] + arr[3]
     
     print(min_sum, max_sum)
+
+#miniMaxSum([1, 2, 3, 4, 5]) #10 14
+
+def timeConversion(s):
+    # Write your code here
+    if s[-2:] == 'PM' and s[:2] != '12':
+        hour = int(s[:2]) + 12
+        #print(s[:2])
+        # print(s[2:8])
+        time = str(hour)+ s[2:8]
+    elif s[-2:] == 'AM' and s[:2] == '12':
+        hour = '00'
+        time = hour+ s[2:8]
+    else:
+        time = s[:-2]
+    return time
+
+# print(timeConversion('07:05:45PM')) # 19:05:45
+# print(timeConversion('12:05:45AM')) # 00:05:45
+# print(timeConversion('12:05:45PM')) # 12:05:45
