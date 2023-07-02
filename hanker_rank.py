@@ -120,3 +120,33 @@ def countingSort(arr):
 
 #print(countingSort([1,1,3,2,1])) #[0,3,1,1]
 #print(countingSort([63, 25, 73, 1, 98, 73, 56, 84, 86, 57, 16, 83, 8, 25, 81, 56, 9, 53, 98, 67, 99, 12, 83, 89, 80, 91, 39, 86, 76, 85, 74, 39, 25, 90, 59, 10, 94, 32, 44, 3, 89, 30, 27, 79, 46, 96, 27, 32, 18, 21, 92, 69, 81, 40, 40, 34, 68, 78, 24, 87, 42, 69, 23, 41, 78, 22, 6, 90, 99, 89, 50, 30, 20, 1, 43, 3, 70, 95, 33, 46, 44, 9, 69, 48, 33, 60, 65, 16, 82, 67, 61, 32, 21, 79, 75, 75, 13, 87, 70, 33]))
+
+
+#WEEK TEST PREP Day 3
+#Exercise 1
+#Debug to get code working
+#Given an array of  distinct integers, transform the array into a zig zag sequence by 
+# permuting the array elements. A sequence will be called a zig zag sequence if the 
+# first  k elements in the sequence are in increasing order and the last k  
+# elements are in decreasing order, where k=(len(arr)+1)/2 . 
+# You need to find the lexicographically smallest zig zag sequence of the given array.
+def findZigZagSequence(a, n):
+    a.sort()
+    mid = int((n)//2) ## Was (n-1)/2
+    a[mid], a[n-1] = a[n-1], a[mid]
+
+    st = mid + 1
+    ed = n - 2 ##Was n -1
+    while(st <= ed):
+        a[st], a[ed] = a[ed], a[st]
+        st = st + 1
+        ed = ed - 1 ##Was n+1
+
+    for i in range (n):
+        if i == n-1:
+            print(a[i])
+        else:
+            print(a[i], end = ' ')
+    return
+
+#print(findZigZagSequence([1, 2, 3, 4, 5, 6, 7,], 7)) # 1 2 3 7 6 5 4
