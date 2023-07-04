@@ -150,3 +150,31 @@ def findZigZagSequence(a, n):
     return
 
 #print(findZigZagSequence([1, 2, 3, 4, 5, 6, 7,], 7)) # 1 2 3 7 6 5 4
+
+#Exercise 2
+# Two players are playing a game of Tower Breakers! Player 1 always moves first, and both players always play optimally. 
+# The rules of the game are as follows:
+# Initially there are n towers.
+# Each tower is of height  m.
+# The players move in alternating turns.
+# In each turn, a player can choose a tower of height x and reduce its height to y, 
+# where 1<=y<x  and  evenly divides x.
+# If the current player is unable to make a move, they lose the game.
+# Given the values of n and m, determine which player will win. 
+# If the first player wins, return 1 . Otherwise, return 2.
+
+#Explanation: If there is one tower then Player 1 always wins by simply removing everything and 
+# leaving just 1. But if there are two towers then second player can always just copy the 
+# first player and therfore second player wins. If there are three towers then first one wins by 
+# removing everything and leaving 1 and then just copying player two. 
+# The only time that player one is going to lose if there is one tower which is it of height 1.
+def towerBreakers(n, m):
+    # Write your code here
+    if m==1 or n%2 == 0:
+        return 2
+    else:
+        return 1
+    
+
+print(towerBreakers(2,6)) #2
+print(towerBreakers(1,4)) #2
