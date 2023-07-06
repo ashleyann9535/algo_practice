@@ -176,5 +176,30 @@ def towerBreakers(n, m):
         return 1
     
 
-print(towerBreakers(2,6)) #2
-print(towerBreakers(1,4)) #2
+#print(towerBreakers(2,6)) #2
+#print(towerBreakers(1,4)) #2
+
+#Exercise 3
+#Complete the caesarCipher function in the editor below.
+#caesarCipher has the following parameter(s):
+# string s: cleartext and int k: the alphabet rotation factor
+# Returns : string: the encrypted string
+def caesarCipher(s, k):
+    # Write your code here
+    new_str = ''
+    
+    for i in range(len(s)):
+        char = s[i]
+        #In the context of the Caesar cipher implementation, ord() is used to get the ASCII code 
+        # of a character before shifting it, while chr() is used to convert the shifted ASCII code 
+        # back to a character after encryption
+        if char.isupper():
+            new_str += chr((ord(char)+ k - 65) % 26 + 65)
+        elif char.islower():
+            new_str += chr((ord(char) + k - 97) % 26 + 97)
+        else:
+            new_str += char
+    
+    return new_str
+
+print(caesarCipher('middle-Outz', 2)) #okffng-Qwvb
