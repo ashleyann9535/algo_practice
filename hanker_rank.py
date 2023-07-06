@@ -185,7 +185,6 @@ def towerBreakers(n, m):
 # string s: cleartext and int k: the alphabet rotation factor
 # Returns : string: the encrypted string
 def caesarCipher(s, k):
-    # Write your code here
     new_str = ''
     
     for i in range(len(s)):
@@ -202,4 +201,28 @@ def caesarCipher(s, k):
     
     return new_str
 
-print(caesarCipher('middle-Outz', 2)) #okffng-Qwvb
+#print(caesarCipher('middle-Outz', 2)) #okffng-Qwvb
+
+#Day 4 Exercise 1
+#Given a square grid of characters in the range ascii[a-z], rearrange elements of each row 
+# alphabetically, ascending. Determine if the columns are also in ascending alphabetical order, 
+# top to bottom. Return YES if they are or NO if they are not.
+def gridChallenge(grid):
+    rows_sorted = []
+    for s in grid:
+        sorted_str = ''.join(sorted(s))
+        rows_sorted.append(sorted_str)
+        
+    print(rows_sorted)
+
+    grouped_columns = [list(x) for x in zip(*rows_sorted)]
+    print(grouped_columns)
+    
+    for l in grouped_columns:
+     if l != sorted(l):
+         return 'NO'
+    
+    return 'YES'
+
+#Refactor to use list comp
+print(gridChallenge(['ebacd', 'fghij', 'olmkn', 'trpqs', 'xywuv'])) #YES
