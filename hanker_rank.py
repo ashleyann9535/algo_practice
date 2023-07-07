@@ -225,4 +225,18 @@ def gridChallenge(grid):
     return 'YES'
 
 #Refactor to use list comp
-print(gridChallenge(['ebacd', 'fghij', 'olmkn', 'trpqs', 'xywuv'])) #YES
+# print(gridChallenge(['ebacd', 'fghij', 'olmkn', 'trpqs', 'xywuv'])) #YES
+
+#Exercise 2
+#Given an integer, we need to find the super digit of the integer.
+#If x has only 1 digit, then its super digit is x.
+#Otherwise, the super digit of x is equal to the super digit of the sum of the digits of x.
+def superDigit(n, k):
+    if len(n) == 1:
+        return int(n)
+    else:
+        current_sum = k * sum(int(digit) for digit in n)
+        return superDigit(str(current_sum), 1)
+
+print(superDigit('148', 3)) #3
+print(superDigit('9875', 4)) #8
