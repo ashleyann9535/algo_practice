@@ -40,7 +40,7 @@ def getMoneySpent(keyboards, drives, b):
 #The Utopian Tree goes through 2 cycles of growth every year. Each spring, 
 # it doubles in height. Each summer, its height increases by 1 meter.
 #A Utopian Tree sapling with a height of 1 meter is planted at the onset of spring. 
-# How tall will the tree be after  growth cycles?
+# How tall will the tree be after n growth cycles?
 def utopianTree(n):
     tree = 1
     for i in range(1, n+1):
@@ -52,3 +52,19 @@ def utopianTree(n):
     return tree
 
 #print(utopianTree(5)) #14
+
+#An integer d is a divisor of an integer n if the remainder of n/d=0.
+#Given an integer, for each digit that makes up the integer determine whether it is a divisor. 
+# Count the number of divisors occurring within the integer.
+def findDigits(n):
+    num_to_str = str(n)
+    count = 0
+    
+    for char in num_to_str:
+        num = int(char)
+        if num != 0 and n % num == 0:
+            count += 1
+            
+    return count
+
+#print(findDigits(124)) #3
