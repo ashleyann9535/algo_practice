@@ -33,7 +33,22 @@ def getMoneySpent(keyboards, drives, b):
     else: 
         return -1
 
+# print(getMoneySpent([40, 50, 60], [5,8,12], 60)) #58
+# print(getMoneySpent([3,1], [5,2,8], 10)) #9
+# print(getMoneySpent([4], [5], 5)) #-1
 
-print(getMoneySpent([40, 50, 60], [5,8,12], 60)) #58
-print(getMoneySpent([3,1], [5,2,8], 10)) #9
-print(getMoneySpent([4], [5], 5)) #-1
+#The Utopian Tree goes through 2 cycles of growth every year. Each spring, 
+# it doubles in height. Each summer, its height increases by 1 meter.
+#A Utopian Tree sapling with a height of 1 meter is planted at the onset of spring. 
+# How tall will the tree be after  growth cycles?
+def utopianTree(n):
+    tree = 1
+    for i in range(1, n+1):
+        if i % 2 == 0:
+            tree += 1
+        else:
+            tree *= 2
+    
+    return tree
+
+#print(utopianTree(5)) #14
