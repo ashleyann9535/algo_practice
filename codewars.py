@@ -37,4 +37,21 @@ def create_phone_number(n):
     return phone
 
 
-print(create_phone_number([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])) # "(123) 456-7890"
+#print(create_phone_number([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])) # "(123) 456-7890"
+
+# Implement the function unique_in_order which takes as argument a sequence and 
+# returns a list of items without any elements with the same value next to each other and preserving the original order of elements.
+def unique_in_order(sequence):
+    if not sequence:
+        return []
+
+    new_arr = [sequence[0]]
+
+    for item in sequence[1:]:
+        if item != new_arr[-1]:
+            new_arr.append(item)
+
+    return new_arr
+
+print(unique_in_order([1, 2, 2, 3, 3])) # [1, 2, 3]
+print(unique_in_order('ABBCcAD')) # ['A', 'B', 'C', 'c', 'A', 'D']
