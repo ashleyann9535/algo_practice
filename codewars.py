@@ -53,5 +53,26 @@ def unique_in_order(sequence):
 
     return new_arr
 
-print(unique_in_order([1, 2, 2, 3, 3])) # [1, 2, 3]
-print(unique_in_order('ABBCcAD')) # ['A', 'B', 'C', 'c', 'A', 'D']
+# print(unique_in_order([1, 2, 2, 3, 3])) # [1, 2, 3]
+# print(unique_in_order('ABBCcAD')) # ['A', 'B', 'C', 'c', 'A', 'D']
+
+# An ordered sequence of numbers from 1 to N is given. One number might have deleted from it, 
+# then the remaining numbers were mixed. Find the number that was deleted.
+#If no number was deleted from the starting array, your function should return the int 0.
+def find_deleted_number(arr, mixed_arr):
+    #First Attempt
+    # if len(arr) == len(mixed_arr):
+    #     return 0
+
+    # arr = set(arr)
+    # mixed_arr = set(mixed_arr)
+
+    # missing_num = list(arr - mixed_arr)
+
+    # return missing_num[0]
+
+    #Refactor way
+    return sum(arr) - sum(mixed_arr)
+
+
+print(find_deleted_number([1,2,3,4,5,6,7,8,9],[3,2,4,6,7,8,1,9]))
