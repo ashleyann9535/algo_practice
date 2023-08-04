@@ -68,3 +68,21 @@ def findDigits(n):
     return count
 
 #print(findDigits(124)) #3
+
+#Given a range of numbered days, [i...j] and a number k, determine the number of days in the range 
+# that are beautiful. Beautiful numbers are defined as numbers where i - reverse(i) is evenly 
+# divisible by k. If a day's value is a beautiful number, it is a beautiful day. 
+# Return the number of beautiful days in the range.
+def beautifulDays(i, j, k):
+    # Write your code here
+    count = 0
+    for n in range(i,j+1):
+        reverse_n = str(n)[::-1]
+        abs_diff = abs(n - int(reverse_n))
+        if abs_diff % k == 0:
+            count += 1
+            
+    return count
+
+
+print(beautifulDays(20, 23, 6)) #2
