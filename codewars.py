@@ -74,5 +74,43 @@ def find_deleted_number(arr, mixed_arr):
     #Refactor way
     return sum(arr) - sum(mixed_arr)
 
+#print(find_deleted_number([1,2,3,4,5,6,7,8,9],[3,2,4,6,7,8,1,9]))
 
-print(find_deleted_number([1,2,3,4,5,6,7,8,9],[3,2,4,6,7,8,1,9]))
+#Given two array of integers(arr1,arr2). Your task is going to find a pair of numbers
+# (an element in arr1, and another element in arr2), their difference is as big as possible(absolute value); 
+# Again, you should to find a pair of numbers, their difference is as small as possible. 
+# Return the maximum and minimum difference values by an array: [  max difference,  min difference  ]
+def max_and_min(arr1,arr2):
+    max_min_arr = []
+
+    max_val_arr1 = max(arr1)
+    min_val_arr2 = min(arr2)
+    
+    max_val_arr2 = max(arr2)
+    min_val_arr1 = min(arr1)
+
+    diff1 = abs(max_val_arr1 - min_val_arr2)
+    diff2 = abs(min_val_arr1 - max_val_arr2)
+
+    if diff1 > diff2:
+        max_min_arr.append(diff1)
+    else:
+        max_min_arr.append(diff2)
+
+    arr1.sort()
+    arr2.sort()
+    min_diff = float('inf')  # Initialize with positive infinity
+    
+    i = 0
+    for n in arr2:
+        while i < len(arr1) - 1 and abs(arr1[i+1] - n) < abs(arr1[i] - n):
+            i += 1
+        min_diff = min(min_diff, abs(arr1[i] - n))
+
+    max_min_arr.append(min_diff)
+
+    return max_min_arr
+
+
+print(max_and_min([3,10,5],[20,7,15,8])) # 17, 2
+print(max_and_min([3],[20])) # 17, 17
