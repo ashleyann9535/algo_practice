@@ -85,4 +85,38 @@ def beautifulDays(i, j, k):
     return count
 
 
-print(beautifulDays(20, 23, 6)) #2
+#print(beautifulDays(20, 23, 6)) #2
+
+# You are choreographing a circus show with various animals. For one act, you are given two kangaroos on a 
+# number line ready to jump in the positive direction (i.e, toward positive infinity).
+# The first kangaroo starts at location  and moves at a rate of  meters per jump.
+# The second kangaroo starts at location  and moves at a rate of  meters per jump.
+# You have to figure out a way to get both kangaroos at the same location at the same time as 
+# part of the show. If it is possible, return YES, otherwise return NO.
+def kangaroo(x1, v1, x2, v2):
+    # If the kangaroos start at the same location and have the same speed, they will always meet.
+    if x1 == x2 and v1 == v2:
+        print(1)
+        return "YES"
+    
+    # If the kangaroos start at different locations and have the same speed, they will never meet.
+    if v1 == v2 and x1 != x2:
+        print(2)
+        return "NO"
+    
+    # Calculate the time it takes for the kangaroos to meet.
+    # The condition for meeting is (x1 + t * v1) == (x2 + t * v2).
+    t = (x2 - x1) / (v1 - v2)
+
+    # If t is a positive integer, it means the kangaroos meet at the same location at the same time.
+    if t >= 0 and t.is_integer():
+        print(4)
+        return 'YES'
+    else:
+        print(5)
+        return 'NO'
+
+print(kangaroo(0, 3, 4, 2)) #yes
+print(kangaroo(0, 2, 5, 3)) #no
+print(kangaroo(2, 1, 1, 2)) #yes
+print(kangaroo(28, 8, 96, 2)) #no
