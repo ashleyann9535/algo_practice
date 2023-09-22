@@ -116,7 +116,18 @@ def kangaroo(x1, v1, x2, v2):
         print(5)
         return 'NO'
 
-print(kangaroo(0, 3, 4, 2)) #yes
-print(kangaroo(0, 2, 5, 3)) #no
-print(kangaroo(2, 1, 1, 2)) #yes
-print(kangaroo(28, 8, 96, 2)) #no
+# print(kangaroo(0, 3, 4, 2)) #yes
+# print(kangaroo(0, 2, 5, 3)) #no
+# print(kangaroo(2, 1, 1, 2)) #yes
+# print(kangaroo(28, 8, 96, 2)) #no
+
+def extraLongFactorials(n):
+    # Write your code here
+    factorials = 1
+
+    for i in range(1, n + 1):
+        factorials *= i
+        
+    return factorials
+
+print(extraLongFactorials(25))

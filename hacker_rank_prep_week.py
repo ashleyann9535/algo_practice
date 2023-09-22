@@ -221,5 +221,34 @@ def superDigit(n, k):
         current_sum = k * sum(int(digit) for digit in n)
         return superDigit(str(current_sum), 1)
 
-print(superDigit('148', 3)) #3
-print(superDigit('9875', 4)) #8
+#print(superDigit('148', 3)) #3
+#print(superDigit('9875', 4)) #8
+
+#Exercise 3
+# It is New Year's Day and people are in line for the Wonderland rollercoaster ride. 
+# Each person wears a sticker indicating their initial position in the queue from  to . 
+# Any person can bribe the person directly in front of them to swap positions, 
+# but they still wear their original sticker. One person can bribe at most two others.
+# Determine the minimum number of bribes that took place to get to a given queue order. 
+# Print the number of bribes, or, if anyone has bribed more than two people, print Too chaotic.
+def minimumBribes(q):
+    # Iterate through the queue, where i represents the current person's position
+    for i in range(len(q)):
+        # Check if the current person has bribed more than two people
+        if q[i] - (i + 1) > 2:
+            print("Too chaotic")
+            return
+
+        # Iterate through the positions in front of the current person
+        # to check if any bribes occurred
+        for j in range(max(0, q[i] - 2), i):
+            # Check if the person at position j has a larger sticker number
+            # than the current person at position i
+            if q[j] > q[i]:
+                bribes += 1  # Increment the bribes count
+
+    # If no one has bribed more than two people, print the total number of bribes
+    print(bribes)
+
+#minimumBribes([1,2,3,5,4,6,7,8]) #1
+#minimumBribes([4,1,2,3]) #Too chaotic
