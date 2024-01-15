@@ -120,5 +120,17 @@ def max_and_min(arr1, arr2):
     return [max(max_min), min(max_min)]
 
 
-print(max_and_min([3,10,5],[20,7,15,8])) # 17, 2
-print(max_and_min([3],[20])) # 17, 17
+#print(max_and_min([3,10,5],[20,7,15,8])) # 17, 2
+#print(max_and_min([3],[20])) # 17, 17
+
+def subsetA(arr):
+    # Write your code here
+    arr_sets = []
+    
+    for i in range(len(arr)-1):
+        pass
+
+    return arr_sets
+
+print(subsetA([3,7,5,6,2])) # [5,7] [6,7]
+print(subsetA([5,3,2,4,1,2])) #[4,5]
