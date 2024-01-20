@@ -49,5 +49,29 @@ const luckyTicket = n => {
     }
 }
 
-console.log(luckyTicket(1230)); //True
-console.log(luckyTicket(239017)); //False
+//console.log(luckyTicket(1230)); //True
+//console.log(luckyTicket(239017)); //False
+
+//Some people are standing in a row in a park. There are trees between them which cannot be moved. 
+//Your task is to rearrange the people by their heights in a non-descending order without moving the trees. 
+//People can be very tall! -1 means a tree
+const seeInThePark = arr => {
+    if(arr.includes(-1)){
+        let people = arr.filter(h => h !== -1).sort((a,b) => a-b);
+
+        let newArr = arr.map(n => {
+            if(n !== -1){
+                n = people[0];
+                people.shift();
+            }
+            return n;
+        });
+        return newArr;
+    }
+
+    return arr.sort((a,b) => a-b)
+};
+
+//console.log(seeInThePark([-1, 150, 190, 170, -1, -1, 160, 180])); //[-1, 150, 160, 170, -1, -1, 180, 190]
+//console.log(seeInThePark([4, 2, 9, 11, 2, 16])); //[2, 2, 4, 9, 11, 16]
+console.log(seeInThePark([23, 54, -1, 43, 1, -1, -1, 77, -1, -1, -1, 3])); //[1, 3, -1, 23, 43, -1, -1, 54, -1, -1, -1, 77]
