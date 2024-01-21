@@ -74,4 +74,26 @@ const seeInThePark = arr => {
 
 //console.log(seeInThePark([-1, 150, 190, 170, -1, -1, 160, 180])); //[-1, 150, 160, 170, -1, -1, 180, 190]
 //console.log(seeInThePark([4, 2, 9, 11, 2, 16])); //[2, 2, 4, 9, 11, 16]
-console.log(seeInThePark([23, 54, -1, 43, 1, -1, -1, 77, -1, -1, -1, 3])); //[1, 3, -1, 23, 43, -1, -1, 54, -1, -1, -1, 77]
+//console.log(seeInThePark([23, 54, -1, 43, 1, -1, -1, 77, -1, -1, -1, 3])); //[1, 3, -1, 23, 43, -1, -1, 54, -1, -1, -1, 77]
+
+//Write a function that reverses characters in (possibly nested) parentheses in the input string.
+const reverseParen = inputString => {
+    const stack = [];
+    let result = '';
+
+    for(let char of inputString){
+        if(char === '('){
+            stack.push(result);
+            result = '';
+        }else if(char === ')'){
+            result = stack.pop() + result.split('').reverse().join('');
+        }else{
+            result += char;
+        };
+    };
+    return result;
+}
+
+//console.log(reverseParen('(bar)')); // rab
+//console.log(reverseParen('foo(bar)baz')) // foorabbaz
+console.log(reverseParen('foo(bar(baz))blim')); // foobazrabblim
