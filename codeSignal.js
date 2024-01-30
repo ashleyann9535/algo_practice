@@ -122,14 +122,14 @@ const dividedGroups = arr => {
 
 //Given a rectangular matrix of characters, add a border of asterisks(*) to it.
 const addBorder = picture => {
-    let border = '*'
-
-    const borderedPic = picture.map(elem => {
-        return `${border}${elem}${border}`
-    })
-
-    borderedPic.unshift(border.repeat(borderedPic[0].length))
-    borderedPic.push(border.repeat(borderedPic[0].length))
+    const border = '*';
+    
+    const borderedPic = picture.map(elem => `${border}${elem}${border}`);
+    
+    const borderRow = border.repeat(borderedPic[0].length);
+    
+    borderedPic.unshift(borderRow);
+    borderedPic.push(borderRow);
     
     return borderedPic
 }
