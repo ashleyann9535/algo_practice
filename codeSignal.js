@@ -104,7 +104,6 @@ const reverseParen = inputString => {
 //You are given an array of positive integers - the weights of the people. 
 //Return an array of two integers, where the first element is the total weight of team 1, 
 //and the second element is the total weight of team 2 after the division is complete.
-
 const dividedGroups = arr => {
     let groupArr = [0,0];
 
@@ -119,4 +118,20 @@ const dividedGroups = arr => {
     return groupArr;
 }
 
-console.log(dividedGroups([50, 60, 60, 45, 70])); //[180, 105]
+//console.log(dividedGroups([50, 60, 60, 45, 70])); //[180, 105]
+
+//Given a rectangular matrix of characters, add a border of asterisks(*) to it.
+const addBorder = picture => {
+    let border = '*'
+
+    const borderedPic = picture.map(elem => {
+        return `${border}${elem}${border}`
+    })
+
+    borderedPic.unshift(border.repeat(borderedPic[0].length))
+    borderedPic.push(border.repeat(borderedPic[0].length))
+    
+    return borderedPic
+}
+
+console.log(addBorder(["abc","ded"])); //["*****","*abc*","*ded*","*****"]
