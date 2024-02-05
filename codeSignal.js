@@ -157,6 +157,28 @@ const similarArr = (a, b) => {
     };
 }
 
-console.log(similarArr([1, 2, 3], [1, 2, 3])); //true
-console.log(similarArr([1, 2, 3], [2, 1, 3])); //true
-console.log(similarArr([1, 2, 2], [2, 1, 1])); //false
+//console.log(similarArr([1, 2, 3], [1, 2, 3])); //true
+//console.log(similarArr([1, 2, 3], [2, 1, 3])); //true
+//console.log(similarArr([1, 2, 2], [2, 1, 1])); //false
+
+//You are given an array of integers. On each move you are allowed to increase exactly one of its element 
+//by one. Find the minimal number of moves required to obtain a strictly increasing sequence from the input.
+
+const increaseCount = inputArray => {
+    let count = 0;
+
+    for(let i = 0; i < inputArray.length; i++){
+        if(inputArray[i] >= inputArray[i+1]){
+            count += (inputArray[i] - inputArray[i+1] + 1);
+            inputArray[i+1] = inputArray[i] + 1;
+        };
+    }
+
+    console.log(inputArray);
+
+    return count;
+
+}
+
+console.log(increaseCount([-1000, 0, -2, 0])); //5
+console.log(increaseCount([1, 1, 1])); //3
