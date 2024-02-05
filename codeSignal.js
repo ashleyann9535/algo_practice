@@ -133,5 +133,30 @@ const addBorder = picture => {
     
     return borderedPic
 }
+//console.log(addBorder(["abc","ded"])); //["*****","*abc*","*ded*","*****"]
 
-console.log(addBorder(["abc","ded"])); //["*****","*abc*","*ded*","*****"]
+//Two arrays are called similar if one can be obtained from another by swapping at most one pair of 
+//elements in one of the arrays.
+const similarArr = (a, b) => {
+    if(a.length != b.length){
+        return false;
+    };
+
+    let diffSpots = [];
+
+    for(let i =0; i <= a.length; i++){
+        if(a[i] !== b[i]){
+            diffSpots.push(i);
+        };
+    };
+
+    if(diffSpots.length === 0 || (diffSpots.length === 2 && a[diffSpots[0]] === b[diffSpots[1]] && a[diffSpots[1]] === b[diffSpots[0]])){
+        return true;
+    }else{
+        return false;
+    };
+}
+
+console.log(similarArr([1, 2, 3], [1, 2, 3])); //true
+console.log(similarArr([1, 2, 3], [2, 1, 3])); //true
+console.log(similarArr([1, 2, 2], [2, 1, 1])); //false
