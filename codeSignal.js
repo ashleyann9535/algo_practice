@@ -180,5 +180,34 @@ const increaseCount = inputArray => {
 
 }
 
-console.log(increaseCount([-1000, 0, -2, 0])); //5
-console.log(increaseCount([1, 1, 1])); //3
+//console.log(increaseCount([-1000, 0, -2, 0])); //5
+//console.log(increaseCount([1, 1, 1])); //3
+
+//Given a string, find out if its characters can be rearranged to form a palindrome.
+
+const isPalindrome = inputString => {
+//count each character and put into an object to store counts
+    let charCount = {};
+
+    for(let char of inputString){
+        //create key value pair; if key exists use value and add 1, if not use 0 and add 1
+        charCount[char] = (charCount[char] || 0) + 1;
+    };
+
+//Check if more than 1 character has an odd count. if does, cant be a palindrome
+    let oddCount = 0;
+
+    for(let key in charCount){
+        if(charCount[key] % 2 !== 0){
+            oddCount++;
+        };
+        if(count > 1){
+            return false;
+        };
+    };
+
+    return true;
+}
+
+console.log(isPalindrome('aabb')) //true abba
+console.log(isPalindrome('abd')) //false
