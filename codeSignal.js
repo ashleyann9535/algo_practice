@@ -218,9 +218,24 @@ const isPalindrome = inputString => {
 //Given your and your friend's arms' lifting capabilities find out if you two are equally strong.
 
 const equallyStrong = (yourLeft, yourRight, friendsLeft, friendsRight) => {
-    return (yourLeft === friendsLeft && yourRight === friendsRight) || (yourLeft === friendsRight && yourRight === friendsLeft)
-}
+    return (yourLeft === friendsLeft && yourRight === friendsRight) || (yourLeft === friendsRight && yourRight === friendsLeft);
+};
 
-console.log(equallyStrong(10, 15, 10, 15)) //true
-console.log(equallyStrong(10, 15, 15, 10)) //true
-console.log(equallyStrong(10, 15, 9, 15)) //false
+//console.log(equallyStrong(10, 15, 10, 15)); //true
+//console.log(equallyStrong(10, 15, 15, 10)); //true
+//console.log(equallyStrong(10, 15, 9, 15)); //false
+
+//Given an array of integers, find the maximal absolute difference between any two of its adjacent elements.
+const absoluteDifference = inputArray => {
+    let absDiff = Math.abs(inputArray[0] - inputArray[1]);
+
+    for(let i = 1; i < inputArray.length -1; i++){
+        let difference = Math.abs(inputArray[i] - inputArray[i+1]);
+        if(difference > absDiff){
+            absDiff = difference;
+        };
+    };
+    return absDiff;
+};
+
+console.log(absoluteDifference([2, 4, 1, 0])); //3
