@@ -1,3 +1,6 @@
+//Source = https://app.codesignal.com/
+//Arcade Levels
+
 //Given an array of strings, return another array containing all of its longest strings.
 const longestStr = arr => {
     let sortArr = arr.sort((a,b) => b.length - a.length)
@@ -238,4 +241,32 @@ const absoluteDifference = inputArray => {
     return absDiff;
 };
 
-console.log(absoluteDifference([2, 4, 1, 0])); //3
+//console.log(absoluteDifference([2, 4, 1, 0])); //3
+
+//An IP address is a numerical label assigned to each device (e.g., computer, printer) participating in a 
+//computer network that uses the Internet Protocol for communication. 
+//There are two versions of the Internet protocol, and thus two versions of addresses. 
+//One of them is the IPv4 address. Given a string, find out if it satisfies the IPv4 address naming rules.
+
+const ipV4 = (inputString) => {
+    let ipv4Arr = inputString.split('.').map(element => {
+        if(element.length > 1 && element[0] === '0' || Number(element) > 255 || isNaN(Number(element))){
+            element = '';
+        };
+        return element;
+    });
+
+    if(ipv4Arr.length !== 4 || ipv4Arr.includes('')){
+        return false;
+    };
+
+    return true;
+}
+
+console.log(ipV4("172.16.254.1")); //true
+console.log(ipV4("17.233.01.131")); //false
+console.log(ipV4("172.316.254.1")); // false
+console.log(ipV4(".254.255.0")); // false
+console.log(ipV4("01.233.161.131"));// false
+console.log(ipV4("1.1.1.1.1")); //false
+console.log(ipV4("1.1.1.1a")); //false
