@@ -249,16 +249,15 @@ const absoluteDifference = inputArray => {
 //One of them is the IPv4 address. Given a string, find out if it satisfies the IPv4 address naming rules.
 
 const ipV4 = (inputString) => {
-    let ipv4Arr = inputString.split('.').map(element => {
-        if(element.length > 1 && element[0] === '0' || Number(element) > 255 || isNaN(Number(element))){
-            element = '';
-        };
-        return element;
-    });
+    //make string into array and then filer elements that dont match ipv4 rules
+    const ipv4Arr = inputString.split('.').filter(element => {
+        //use early return if element does not meet criteria
+        return !(element.length > 1 && element[0] === '0' || Number(element) > 255 || isNaN(Number(element)));
+});
 
-    if(ipv4Arr.length !== 4 || ipv4Arr.includes('')){
+    if(ipv4Arr.length !== 4){
         return false;
-    };
+    }
 
     return true;
 }
