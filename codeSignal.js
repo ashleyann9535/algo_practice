@@ -262,10 +262,53 @@ const ipV4 = (inputString) => {
     return true;
 }
 
-console.log(ipV4("172.16.254.1")); //true
-console.log(ipV4("17.233.01.131")); //false
-console.log(ipV4("172.316.254.1")); // false
-console.log(ipV4(".254.255.0")); // false
-console.log(ipV4("01.233.161.131"));// false
-console.log(ipV4("1.1.1.1.1")); //false
-console.log(ipV4("1.1.1.1a")); //false
+// console.log(ipV4("172.16.254.1")); //true
+// console.log(ipV4("17.233.01.131")); //false
+// console.log(ipV4("172.316.254.1")); // false
+// console.log(ipV4(".254.255.0")); // false
+// console.log(ipV4("01.233.161.131"));// false
+// console.log(ipV4("1.1.1.1.1")); //false
+// console.log(ipV4("1.1.1.1a")); //false
+
+//You are given an array of integers representing coordinates of obstacles situated on a straight line.
+//Assume that you are jumping from the point with coordinate 0 to the right. 
+//You are allowed only to make jumps of the same length represented by some integer.
+//Find the minimal length of the jump enough to avoid all the obstacles.
+const avoidObstacles = inputArray => {
+    const maxCoordinate = Math.max(...inputArray)
+
+    for(let jump = 1; jump <= maxCoordinate + 1; jump++){
+        let canClear = true;
+
+        for(let obstacle of inputArray){
+            if(obstacle % jump === 0) {
+                canClear = false;
+                break;
+            }
+        }
+        if(canClear){
+            return jump;
+        }
+    }
+    return maxCoordinate + 1;
+};
+
+// console.log(avoidObstacles([5, 3, 6, 7, 9])); //4
+// console.log(avoidObstacles([5, 8, 9, 13, 14])); //6
+// console.log(avoidObstacles([19, 32, 11, 23]))//3
+
+//Box Blur
+const boxBlur = image => {
+    let sum = image.map(arr => {
+        return arr.reduce((acc, cur) => {
+            return acc + cur
+        },0)
+    }).reduce((acc, cur) => acc + cur, 0)
+
+    let blur = Math.floor(sum / 9)
+
+    return [[blur]]
+}
+
+console.log(boxBlur([[1, 1, 1], [1, 7, 1], [1, 1, 1]])); // [[1]]
+console.log(boxBlur([[7, 4, 0, 1], [5, 6, 2, 2], [6, 10, 7, 8], [1, 4, 2, 0]])); // [[5,4][4,4]]
