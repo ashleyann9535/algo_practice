@@ -94,3 +94,15 @@ console.log(remove("Hi! Hi!! Hi!")) //=== "Hi!!"
 console.log(remove("Hi! !Hi! Hi!")) //=== '!Hi!
 console.log(remove("Hi! !Hi Hi!")) // === ' '
 console.log(remove("!rgrbhy! !hwlud !vvomag srjxs iglj ncgnqb stac !wqd uzpcz"))// === '!rgrbhy! srjxs iglj ncgnqb stac uzpcz'
+
+//What Javascript statement in place of "?" will make the result always be between 6 and 7? 
+const x = 2; 
+let y = 4; 
+function update(arg) { 
+    return Math.random() + y * arg; 
+} 
+y = 2; y++; 
+
+const result = update(x);
+
+console.log(result)
