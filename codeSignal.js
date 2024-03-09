@@ -299,16 +299,24 @@ const avoidObstacles = inputArray => {
 
 //Box Blur
 const boxBlur = image => {
-    let sum = image.map(arr => {
-        return arr.reduce((acc, cur) => {
-            return acc + cur
-        },0)
-    }).reduce((acc, cur) => acc + cur, 0)
+    const calculateSum = (i, j) => {
+        let sum = 0;
+        for(let dx = -1; dx <= 1; dx++){
+            for(let dy = -1; dy <= 1; dy++){
+                sum += image[i + dx][j + dy];
+            }
+        }
+        return sum;
+    };
 
-    let blur = Math.floor(sum / 9)
+    const blurImage = image.slice(1, -1).map((row, i) => 
+        row.slice(1, -1).map((_, j) => 
+            Math.floor(calculateSum(i + 1, j+1) /9)
+        )
+    );
 
-    return [[blur]]
-}
+    return blurImage;
+};
 
 console.log(boxBlur([[1, 1, 1], [1, 7, 1], [1, 1, 1]])); // [[1]]
 console.log(boxBlur([[7, 4, 0, 1], [5, 6, 2, 2], [6, 10, 7, 8], [1, 4, 2, 0]])); // [[5,4][4,4]]
